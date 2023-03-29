@@ -20,23 +20,7 @@ public class MainController {
     ObjectOutputStream objectOutputStream = null;
     @FXML
     private void initialize(){
-        String hostname = "localhost";
-        int port = 4447;
 
-        try{
-            socket = new Socket(hostname, port);
-            output = socket.getOutputStream();
-            objectOutputStream = new ObjectOutputStream(output);
-
-
-        } catch (UnknownHostException ex) {
-
-            System.out.println("Server not found: " + ex.getMessage());
-
-        } catch (IOException ex) {
-
-            System.out.println("I/O error: " + ex.getMessage());
-        }
     }
 
     @FXML
@@ -54,5 +38,25 @@ public class MainController {
         }
 
 
+    }
+    @FXML
+    protected void onConnectButtonClick() {
+        String hostname = "localhost";
+        int port = 4447;
+
+        try{
+            socket = new Socket(hostname, port);
+            output = socket.getOutputStream();
+            objectOutputStream = new ObjectOutputStream(output);
+
+
+        } catch (UnknownHostException ex) {
+
+            System.out.println("Server not found: " + ex.getMessage());
+
+        } catch (IOException ex) {
+
+            System.out.println("I/O error: " + ex.getMessage());
+        }
     }
 }

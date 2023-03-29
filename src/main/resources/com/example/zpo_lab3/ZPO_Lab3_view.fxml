@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="330.0" prefWidth="520.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.zpo_lab3.MainController">
+<VBox alignment="CENTER" prefHeight="330.0" prefWidth="520.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zpo_lab3.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -32,5 +32,10 @@
          <TextField fx:id="AnswerText" prefHeight="25.0" prefWidth="360.0" />
       </children>
    </HBox>
-    <Button fx:id="ButtonSend" contentDisplay="CENTER" onAction="#onSendButtonClick" prefHeight="44.0" prefWidth="163.0" text="Send" />
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+          <Button fx:id="ButtonSend" contentDisplay="CENTER" onAction="#onSendButtonClick" prefHeight="44.0" prefWidth="163.0" text="Send" />
+         <Button mnemonicParsing="false" onAction="#onConnectButtonClick" prefHeight="44.0" prefWidth="187.0" text="Connect" />
+      </children>
+   </HBox>
 </VBox>
