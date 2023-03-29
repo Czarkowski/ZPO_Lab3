@@ -1,21 +1,23 @@
 package com.example.zpo_lab3;
 
+
+
+import PackageAnswer.Answer;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
+
+
 
 public class MainController {
 
     private Socket socket = null;
     private OutputStream output = null;
+
+    ObjectOutputStream objectOutputStream = null;
     @FXML
     private void initialize(){
         String hostname = "localhost";
@@ -24,8 +26,7 @@ public class MainController {
         try{
             socket = new Socket(hostname, port);
             output = socket.getOutputStream();
-
-            output.write("Client online".getBytes(StandardCharsets.UTF_8));
+            objectOutputStream = new ObjectOutputStream(output);
 
 
         } catch (UnknownHostException ex) {
@@ -45,6 +46,13 @@ public class MainController {
 
     @FXML
     protected void onSendButtonClick() {
-        NickText.setText("Welcome to JavaFX Application!");
+        try {
+            Answer answer = new Answer(NickText.getText(),AnswerText.getText());
+            objectOutputStream.writeObject(answer);
+        }catch (IOException ex){
+            System.out.println("I/O error: " + ex.getMessage());
+        }
+
+
     }
 }
