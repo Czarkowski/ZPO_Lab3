@@ -35,7 +35,7 @@
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
           <Button fx:id="ButtonSend" contentDisplay="CENTER" onAction="#onSendButtonClick" prefHeight="44.0" prefWidth="163.0" text="Send" />
-         <Button mnemonicParsing="false" onAction="#onConnectButtonClick" prefHeight="44.0" prefWidth="187.0" text="Connect" />
+         <Button fx:id="ButtonConnect" mnemonicParsing="false" onAction="#onConnectButtonClick" prefHeight="44.0" prefWidth="187.0" text="Connect" />
       </children>
    </HBox>
 </VBox>
